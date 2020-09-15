@@ -48,7 +48,7 @@ function Slider() {
             <hr />
             <SidebarOption Icon={ExpandMoreSharpIcon} title="Channels"/>
             <hr/>
-            <SidebarOption Icon={AddSharpIcon} addChanneloption title="Add channel"/>
+            <SidebarOption Icon={AddSharpIcon} addChannelOption title="Add channel"/>
             
             {channels.map((channel) =>(
                 <SidebarOption title={channel.name} id={channel.id}/>
