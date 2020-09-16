@@ -8,7 +8,7 @@ function SidebarOption({Icon , title,id , addChannelOption}) {
     const history = useHistory();
     const selectChannel = () => {
         if (id){
-                history.push('/room/${id}');
+            history.push('/room/${id}')
         } else{
             history.push(title);
         }
@@ -24,7 +24,7 @@ function SidebarOption({Icon , title,id , addChannelOption}) {
 
     return (
         <div className="sidebarOption" onClick={addChannelOption ? addChannel : selectChannel}>
-            {Icon && <Icon classNmae="sidebarOption__icon"/>}
+            {Icon && <Icon className="sidebarOption__icon"/>}
             {Icon ? (<h3>{title}</h3>) : (<h3 >
             <span className="sidebarOption__hash">#</span>{title}
             </h3>)}
