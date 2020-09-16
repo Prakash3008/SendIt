@@ -14,10 +14,12 @@ import ExpandLessSharpIcon from '@material-ui/icons/ExpandLessSharp';
 import ExpandMoreSharpIcon from '@material-ui/icons/ExpandMoreSharp';
 import AddSharpIcon from '@material-ui/icons/AddSharp';
 import db from "./firebase";
+import { useStateValue } from './StateProvider';
 
 function Slider() {
 
-    const [channels, setChannels]=useState([])
+    const [channels, setChannels]=useState([]);
+    const [{user}] = useStateValue();
 
     useEffect(() => {
         db.collection('rooms').onSnapshot((snapshot) => (
@@ -33,7 +35,7 @@ function Slider() {
             <div className="sidebar__header">
                 <div className="sidebar__info">    
                 <h2>Hello Everyone</h2>
-                <h3><FiberManualRecordIcon />hi there</h3>
+    <h3><FiberManualRecordIcon />{user?.diaplayName}</h3>
                 </div>
                 <CreateIcon />
             </div>
