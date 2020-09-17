@@ -23,11 +23,11 @@ const [{user}, dispatch] = useStateValue();
         <Sidebar />
       <Switch>
         <Route path="/room/:roomId">
-          <Chat />
+      <Chat />
           
         </Route>
         <Route>
-          <h1>Welcome</h1>
+          <h1 align="center">Welcome</h1>
         </Route>
       </Switch>
       </div> 
