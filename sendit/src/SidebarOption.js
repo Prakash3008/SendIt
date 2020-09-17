@@ -32,4 +32,4 @@ function SidebarOption({Icon , title,id , addChannelOption}) {
     )
 }
 
-export default SidebarOption
+export default SidebarOption;

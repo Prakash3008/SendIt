@@ -16,7 +16,7 @@ import AddSharpIcon from '@material-ui/icons/AddSharp';
 import db from "./firebase";
 import { useStateValue } from './StateProvider';
 
-function Slider() {
+function Sidebar() {
 
     const [channels, setChannels]=useState([]);
     const [{user}] = useStateValue();
@@ -59,4 +59,4 @@ function Slider() {
     )
 }
 
-export default Slider
+export default Sidebar;

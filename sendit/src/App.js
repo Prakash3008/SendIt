@@ -22,7 +22,7 @@ const [{user}, dispatch] = useStateValue();
       <div className="app__body">
         <Sidebar />
       <Switch>
-        <Route path="/room/:roomId">
+        <Route path="/rooms/:roomId">
           <Chat />
           
         </Route>
