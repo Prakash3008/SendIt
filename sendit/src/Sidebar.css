@@ -6,7 +6,6 @@
     max-width: 260px;
     overflow: scroll;
     resize: both;
-    position: relative;
 }
 
 .sidebar > hr{

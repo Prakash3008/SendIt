@@ -57,7 +57,7 @@ useEffect(() =>{
                 </div>
 
             </div>
-            <div className="chat__messages">
+            <div className="chat__messages" ref={currentEl => divRef = currentEl}>
                 {roomMessages.map(({message,timestamp,user,userImage,image}) =>(
                     <Message
                     message={message}
@@ -67,7 +67,7 @@ useEffect(() =>{
                     image={image}
                     imageLoaded= {imageLoaded}/>
                 ))}
-                <div ref={currentEl => divRef = currentEl}></div>
+                
             </div>
                 
                 <ChatInput channelName={roomDetails?.name} channelId={roomId}></ChatInput>

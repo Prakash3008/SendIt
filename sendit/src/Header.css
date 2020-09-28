@@ -5,7 +5,7 @@
     padding: 10px 0;
     background-color: var(--slack-color);
     color: white;
-    overflow: visible;
+    
 }
 
 .header__left{
