@@ -1,15 +1,26 @@
+
 .chat{
     flex: 0.7;
     flex-grow: 1;
-    overflow-y: scroll;
-    padding-bottom: 150px;
+    
+    padding-bottom: 200px;
+    height: 600px;
+    border-bottom:.1px solid lightgray;
 }
-
+.chat__messages{
+    
+    flex: 0.7;
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding-bottom: 200px;
+    height: 500px;
+    border-bottom:.1px solid lightgray;
+}
 .chat__header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
     border-bottom: 1px solid lightgray;
 }
 
@@ -24,14 +35,22 @@
     margin-left: 10px;
     font-size: 18px;
 }
+::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
 
-.chat__headerRight > p{
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-}
 
-.chat__headerRight > p > .MuiSvgIcon-root{
-    margin-right: 5px !important;
-    font-size: 16px;
-}
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--slack-color); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #49270b;
+  }

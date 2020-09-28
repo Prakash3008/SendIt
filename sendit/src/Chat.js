@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
+
 import "./Chat.css";
 import "./App"
 import {useParams} from "react-router-dom";
@@ -12,7 +13,21 @@ function Chat() {
 const {roomId}=useParams();
 const [roomDetails, setRoomDetails] = useState(null);
 const [roomMessages, setRoomMessages] = useState([]);
+
+let divRef = useRef();
+
+useEffect (() =>{
+    divRef.scrollIntoView({behaviour:'smooth', block: "end", inline: "nearest"})
+
+},[roomMessages])
+
+const imageLoaded = () => {
+    divRef.scrollIntoView({behaviour:'smooth', block: "end", inline: "nearest"})
+
+}
+
 useEffect(() =>{
+
     if(roomId){
         db.collection('rooms').doc(roomId)
         .onSnapshot((snapshot) => 
@@ -29,6 +44,8 @@ useEffect(() =>{
     );
 },[roomId]
 );
+
+
     return (
     
         <div className="chat">
@@ -38,20 +55,19 @@ useEffect(() =>{
                     <strong># {roomDetails?.name}</strong>
                     <StarBorderOutlinedIcon /></h4>
                 </div>
-                <div className="chat__headerRight">
-                    <p>
-                        <InfoOutlinedIcon />Details
-                    </p>
-                </div>
+
             </div>
             <div className="chat__messages">
-                {roomMessages.map(({message,timestamp,user,userImage}) =>(
+                {roomMessages.map(({message,timestamp,user,userImage,image}) =>(
                     <Message
                     message={message}
                     timestamp={timestamp}
                     user={user}
-                    userImage={userImage}/>
+                    userImage={userImage}
+                    image={image}
+                    imageLoaded= {imageLoaded}/>
                 ))}
+                <div ref={currentEl => divRef = currentEl}></div>
             </div>
                 
                 <ChatInput channelName={roomDetails?.name} channelId={roomId}></ChatInput>

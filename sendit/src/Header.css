@@ -5,6 +5,7 @@
     padding: 10px 0;
     background-color: var(--slack-color);
     color: white;
+    overflow: visible;
 }
 
 .header__left{
@@ -21,7 +22,7 @@
 
 .header__search{
     flex: 0.4;
-    background-color: #421f44;
+    background-color:  #192f3b;
     text-align: center;
     display: flex;
     padding: 0 50px;
@@ -34,6 +35,8 @@
     border: none;
     text-align: center;
     min-width: 35vw;
+    color: white;
+    outline: 0;
 }
 
 .header__right{
@@ -46,3 +49,10 @@
     margin-left: auto;
     margin-right: 20px;
 }
+
+.logout:hover{
+    cursor: pointer;
+    background-color:  #18262e;
+}
+
+
