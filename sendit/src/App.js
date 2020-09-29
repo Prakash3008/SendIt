@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Chat from "./Chat";
 import Login from "./Login";
 import {useStateValue} from "./StateProvider";
+import Room from "./Room";
 
 
 function App() {
@@ -29,8 +30,8 @@ const [{user}, dispatch] = useStateValue();
       <Chat />
           
         </Route>
-        <Route>
-          <h1 align="center">Welcome</h1>
+        <Route path="/vroom/:vroomID">
+          <Room />
         </Route>
       </Switch>
       </div> 

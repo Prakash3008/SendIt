@@ -6,7 +6,7 @@ import AddSharpIcon from '@material-ui/icons/AddSharp';
 import db from "./firebase";
 import { useStateValue } from './StateProvider';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
-import ChatSharpIcon from '@material-ui/icons/ChatSharp';
+import SidebarVoice from './SidebarVoice';
 import ExpandMoreSharpIcon from '@material-ui/icons/ExpandMoreSharp';
 
 function Sidebar() {
@@ -34,7 +34,7 @@ function Sidebar() {
                 </div>
             </div>
             
-            <SidebarOption Icon={VolumeUpIcon} title="Voice Channel"/>
+            <SidebarVoice Icon={VolumeUpIcon} title="Voice Channel"/>
             <hr/>
             <SidebarOption Icon={AddSharpIcon} addChannelOption title="Add Text Channels"/>
 

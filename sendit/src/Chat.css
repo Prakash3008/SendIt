@@ -38,8 +38,8 @@
     font-size: 18px;
 }
 ::-webkit-scrollbar {
-    height: 4px;
-    width: 4px;
+
+    width: 5px;
   }
   ::-webkit-scrollbar-track {
     background: #f1f1f1;
@@ -54,5 +54,5 @@
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #49270b;
+    background: #683e1c;
   }

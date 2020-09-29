@@ -1,0 +1,24 @@
+.SidebarVoice{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding-left: 2px;
+    cursor: pointer;
+}
+
+.SidebarVoice:hover{
+    opacity: 0.9;
+    background-color: #18262e;
+}
+
+.SidebarVoice__icon{
+    padding: 10px;
+}
+
+.SidebarVoice__hash{
+    padding:10px ;
+}
+
+.SidebarVoice > h3{
+    font-weight: 500;
+}

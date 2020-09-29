@@ -14,10 +14,11 @@ function ChatInput({channelName, channelId}) {
     const [fileState, setFileState] = useState('');
 
     const onFileAdded = (e) => {
-        const file = e.target.files[0];
+        const file=e.target.files[0];
         if(file){
             setFileState(file);
             uploadImage(file);
+            
         }
         if(!file){
             alert('Please select a file to upload');
