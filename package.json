@@ -11,17 +11,8 @@
     "simple-peer": "^9.6.2",
     "socket.io": "^2.3.0"
   },
-  "engines": {
-    "node": "8.1.1",
-    "npm": "5.0.3"
-    },
   "scripts": {
-    "client-install": "npm install --prefix sendit",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix sendit",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "postinstall": "cd ./sendit && npm start",
-    "heroku-postbuild":      "NPM_CONFIG_PRODUCTION=false npm install --prefix client        && npm run build --prefix client"  
+    "preinstall": "forever start server.js",
+    "postinstall": "cd ./sendit && npm start"
   }
 }

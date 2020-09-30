@@ -26,7 +26,7 @@ const Video = (props) => {
         props.peer.on("stream", stream => {
             ref.current.srcObject = stream;
         })
-    }, []);
+    }, [props.peer]);
 
 
     return (       
@@ -56,6 +56,7 @@ const Room = (props) => {
 
     useEffect(() => {
         socketRef.current = io.connect("/");
+        alert(socketRef);
         navigator.mediaDevices.getUserMedia({ video: videoConstraints, audio: true }).then(stream => {
             userVideo.current.srcObject = stream;
             socketRef.current.emit("join room", vroomID);
@@ -89,7 +90,7 @@ const Room = (props) => {
                 item.peer.signal(payload.signal);
             });
         })
-    }, []);
+    }, [vroomID]);
     function createPeer(userToSignal, callerID, stream) {
         const peer = new Peer({
             initiator: true,
