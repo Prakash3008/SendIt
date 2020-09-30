@@ -50,7 +50,7 @@ io.on('connection', socket => {
 
 if(process.env.PROD){
     app.use(express.static(path.join(__dirname, './sendit/build')));
-    app.get('/', (req,res) =>{
+    app.get(' ', (req,res) =>{
         res.sendFile(path.join(__dirname, './sendit/build/index.html'))
     });
 }
