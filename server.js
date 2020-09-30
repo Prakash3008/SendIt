@@ -48,10 +48,11 @@ io.on('connection', socket => {
 
 });
 
-if(process.env.PROD){
-    app.use(express.static(path.join(__dirname, './sendit/build')));
-    app.get('/index.html', (req,res) =>{
-        res.sendFile(path.join(__dirname, './sendit/build/index.html'))
+if(process.env.NODE_ENV === 'production'){
+
+    app.use(express.static('sendit/build'));
+    app.get(' * ', (req,res) =>{
+        res.sendFile(path.join(__dirname, 'sendit/build' , 'index.html'));
     });
 }
 
