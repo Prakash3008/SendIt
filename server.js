@@ -48,10 +48,14 @@ io.on('connection', socket => {
 
 });
 
-//if(process.env.PROD){
+if(process.env.PROD){
     app.use(express.static(path.join(__dirname, './sendit/build')));
     app.get('*', (req,res) =>{
         res.sendFile(path.join(__dirname, './sendit/build/index.html'))
     });
-//}
-server.listen(process.env.PORT || 8000, () => console.log('server is running on port 8000'));
+}
+
+const port = process.env.PORT || 8000;
+server.listen(port, () => console.log(
+    `Server is running on port ${port}` 
+));

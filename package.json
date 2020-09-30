@@ -12,7 +12,7 @@
     "socket.io": "^2.3.0"
   },
   "scripts": {
-    "preinstall": "forever start server.js",
-    "postinstall": "cd ./sendit && npm start"
+    "start": "SET PROD=true && node server.js",
+    "postinstall": "cd ./sendit && npm install"
   }
 }
