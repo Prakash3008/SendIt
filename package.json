@@ -16,7 +16,7 @@
     "socket.io": "^2.3.0"
   },
   "scripts": {
-    "start": "SET PROD=true && node server.js",
+    "start": "PROD=true && node server.js",
     "postinstall": "cd ./sendit && npm install"
   }
 }
