@@ -41,13 +41,18 @@ const videoConstraints = {
     height: window.innerHeight / 2,
     width: window.innerWidth / 2
 };
-
+let vstream = '';
+let vvstream = '';
+let vidStream = true;
+let audStream = true;
 const Room = (props) => {
     const [peers, setPeers] = useState([]);
     const socketRef = useRef();
     const userVideo = useRef();
     const peersRef = useRef([]);
     const {vroomID}=useParams();
+    
+    
 
     useEffect(() => {
         socketRef.current = io.connect("/");
@@ -64,6 +69,8 @@ const Room = (props) => {
                     })
                     peers.push(peer);
                 })
+                vstream = stream.getAudioTracks();
+                vvstream = stream.getVideoTracks();
                 setPeers(peers);
             })
 
@@ -73,7 +80,7 @@ const Room = (props) => {
                     peerID: payload.callerID,
                     peer,
                 })
-
+                
                 setPeers(users => [...users, peer]);
             });
 
@@ -83,7 +90,6 @@ const Room = (props) => {
             });
         })
     }, []);
-
     function createPeer(userToSignal, callerID, stream) {
         const peer = new Peer({
             initiator: true,
@@ -116,23 +122,20 @@ const Room = (props) => {
 
     
 const MuteAudio = () => {
-    const tracks = userVideo.getAudioTracks()
-    tracks[0].stop();
-    alert('hi');
+    audStream = !audStream;
+    vstream[0].enabled = audStream;
+    if(audStream == true){
+        
+    }
+   
 }
-const UnMuteAudio = () => {
-    userVideo.getAudioTracks()[0].enabled = false;
-    alert('hi1');
-}
-const MuteVideo = () => {
-    userVideo.getVideoTracks()[0].enabled = false;
-    alert('hi2');
-}
-const UnMuteVideo = () => {
-    userVideo.getVideoTracks()[0].enabled = true;
-    alert('hi3');
 
+const MuteVideo = () => {
+    vidStream = !vidStream;
+    vvstream[0].enabled = vidStream;
+    
 }
+
 
     return (<div>        <Container>
             <StyledVideo muted ref={userVideo} autoPlay playsInline />
@@ -144,10 +147,9 @@ const UnMuteVideo = () => {
           
         
        
-        <div>  <button type="button" onClick={MuteAudio} value="Mute Voice" id="but"/>
-        <button type="button" onClick={UnMuteAudio} value="Unmute Voice" id="but"/>
-        <button type="button" onClick={MuteVideo} value="Stop Video" id="but"/>
-        <button type="button" onClick={UnMuteVideo} value="Show video" id="but"/></div>
+        <div>  <button type="button" onClick={MuteAudio} value="Mute Voice" id="but">Mute Audio</button>
+        <button type="button" onClick={MuteVideo} value="Stop Video" id="but">Mute Video</button>
+</div>
         </Container>
         </div>
 

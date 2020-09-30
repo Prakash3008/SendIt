@@ -12,6 +12,7 @@ import ExpandMoreSharpIcon from '@material-ui/icons/ExpandMoreSharp';
 function Sidebar() {
 
     const [channels, setChannels]=useState([]);
+    const [vchannels, setVoice]=useState([]);
     const [{user}] = useStateValue();
 
     useEffect(() => {
@@ -19,6 +20,13 @@ function Sidebar() {
             setChannels(snapshot.docs.map(doc => ({
                 id: doc.id,
                 name: doc.data().name
+                
+            })))
+        ));
+        db.collection('vrooms').onSnapshot(snapshot => (
+            setVoice(snapshot.docs.map(doc => ({
+                vid: doc.id,
+                vname: doc.data().vname
                 
             })))
         ));
@@ -34,7 +42,11 @@ function Sidebar() {
                 </div>
             </div>
             
-            <SidebarVoice Icon={VolumeUpIcon} title="Voice Channel"/>
+            <SidebarVoice Icon={VolumeUpIcon}title="Voice Channel"/>
+            <SidebarVoice Icon={AddSharpIcon} addVoiceOption title="Add Voice Channel"/>
+            {vchannels.map(vchannel =>(
+                <SidebarVoice title={vchannel.vname} vid={vchannel.vid}/>
+            ))}
             <hr/>
             <SidebarOption Icon={AddSharpIcon} addChannelOption title="Add Text Channels"/>
 
