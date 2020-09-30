@@ -124,12 +124,9 @@ const Room = (props) => {
 const MuteAudio = () => {
     audStream = !audStream;
     vstream[0].enabled = audStream;
-    if(audStream == true){
-        
-    }
    
 }
-
+ 
 const MuteVideo = () => {
     vidStream = !vidStream;
     vvstream[0].enabled = vidStream;
