@@ -19,7 +19,7 @@ const signOut = () => {
     auth
     .signOut().then(function() { 
         alert("You have successfully logged out")
-        history.push("/login")
+        history.push("/")
         window.location.reload(false);
 
       }).catch(function(error) {
