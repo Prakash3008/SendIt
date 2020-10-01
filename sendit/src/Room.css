@@ -8,10 +8,13 @@
 }
 
 .button > #but{
+    background-color: red;
+    color: white;
     margin: 30px;
     margin-left: 350px;
     border-radius: 40px;
     cursor: pointer;
+    border: none;
 }
 
 .video_container > .button > #but:hover{
