@@ -26,8 +26,6 @@ const Video = (props) => {
 
     return (       
         <StyledVideo playsInline autoPlay ref={ref} />
-        
-
     );
 }
 
@@ -46,9 +44,7 @@ const Room = (props) => {
     const userVideo = useRef();
     const peersRef = useRef([]);
     const {vroomID}=useParams();
-    
-    
-
+    //creating a stream foe p-p comms
     useEffect(() => {
         socketRef.current = io.connect("/");
         navigator.mediaDevices.getUserMedia({ video: videoConstraints, audio: true }).then(stream => {
@@ -112,12 +108,12 @@ const Room = (props) => {
         return peer;
     }
 
-    
+//for muting the audio    
 const MuteAudio = () => {
     audStream = !audStream;
     vstream[0].enabled = audStream;
 }
-
+//for disabling the video
 const MuteVideo = () => {
     vidStream = !vidStream;
     vvstream[0].enabled = vidStream;   
