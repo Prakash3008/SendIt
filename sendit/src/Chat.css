@@ -4,9 +4,10 @@
     flex-grow: 1;
     
     padding-bottom: 200px;
-    height: 400px;
+    height: 390px;
     max-height: 600px;
     border-bottom:.1px solid lightgray;
+    resize: both;
 }
 .chat__messages{
     
@@ -14,7 +15,7 @@
     flex-grow: 1;
     overflow-y: scroll;
     padding-bottom: 200px;
-    height: 300px;
+    height: 290px;
     max-height: 500px;
     border-bottom:.1px solid lightgray;
 }

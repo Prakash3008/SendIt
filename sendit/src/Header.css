@@ -19,16 +19,18 @@
     margin-left: auto;
     margin-right: 30px;
 }
-
+.space{
+    margin-left: 20px;
+}
 .header__search{
     flex: 0.4;
     background-color:  #192f3b;
     text-align: center;
     display: flex;
-    padding: 0 50px;
+    padding: 0 20px;
     color: gray;
     border: 1px gray solid;
-    border-radius: 6px;
+    border-radius: 13px;
 }
 .header__search > input{
     background-color: transparent;

@@ -4,7 +4,9 @@ import { useStateValue } from "./StateProvider"
 import db, {storage} from './firebase';
 import firebase from "firebase";
 import uuidv4 from 'uuid/v4'
-import mime from "mime-types"
+import mime from "mime-types";
+import PublishIcon from '@material-ui/icons/Publish';
+import ImageIcon from '@material-ui/icons/Image';
 
 function ChatInput({channelName, channelId}) {
 
@@ -36,13 +38,13 @@ function ChatInput({channelName, channelId}) {
     }
 
     const sendMessage = (e,url) => {
-
+        if(input !== ""){
         e.preventDefault();
 
 
         if(channelId){
             db.collection('rooms').doc(channelId).collection('messages').add({
-                message: input || "",
+                message: input,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 user: user.displayName,
                 userImage: user.photoURL,
@@ -52,7 +54,7 @@ function ChatInput({channelName, channelId}) {
         }
     
         setInput("");
-
+    }
     }
     const sendImage = (url) => {
         if(channelId){
@@ -75,19 +77,20 @@ function ChatInput({channelName, channelId}) {
     return (
         <div className='chatInput'>
             <form>
-                <input type="file" id="file_upload" 
+                {/* <input type="file" id="file_upload" 
                 onChange={onFileAdded}></input>
-                <button id="up" onClick={ uploadImage} type="button">Upload</button>
+                <button id="up" onClick={ uploadImage} type="button">Upload</button> */}
                 <input 
                 value={input}
                 name="text"
+                required
                 onChange={e => setInput(e.target.value)}
                 placeholder={`Message #${channelName?.toLowerCase()}`}
                 id="text"></input>
                 <button type="submit" onClick={sendMessage} className='send' id="send"></button>
-
-
-                
+                <input type="file" id="file_upload" 
+                onChange={onFileAdded}></input>
+                <button id="up" onClick={ uploadImage} type="button"><PublishIcon/></button>   
             </form>
             
         </div>

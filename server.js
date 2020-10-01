@@ -15,7 +15,7 @@ io.on('connection', socket => {
     socket.on("join room", vroomID => {
         if (users[vroomID]) {
             const length = users[vroomID].length;
-            if (length === 4) {
+            if (length === 10) {
                 socket.emit("room full");
                 return;
             }

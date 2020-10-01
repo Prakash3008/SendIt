@@ -10,7 +10,7 @@
     text-align: center;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.12), 0 7px 7px rgba(0, 0, 0, 0.24);
 }
 
 .login__container > img{
@@ -24,5 +24,13 @@
     text-transform: inherit !important;
     background-color: #0a8d48 !important;
     color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 10px 20px rgba(0, 0, 0, 0.24);
 }
 
+.login__container > button:hover{
+    width: 150px;
+    margin-top: 50px;
+    height: 40px;
+    background-color: #0a8d48 !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 10px 20px rgba(0, 0, 0, 0.24);
+}

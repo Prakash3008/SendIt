@@ -32,6 +32,7 @@ const signOut = () => {
         <div className="header">
             <div className='header__left'>
                 <Avatar className="header__avatar" alt={user?.displayName} src={user?.photoURL} />
+                <h3 className="space ">Welcome {user?.displayName}</h3>
                 <AccessTimeIcon />
             </div>
             <div className='header__search'>

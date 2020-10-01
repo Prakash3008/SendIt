@@ -4,15 +4,10 @@ import Peer from "simple-peer";
 import styled from "styled-components";
 import {useParams} from "react-router-dom";
 import './Room.css';
-
-const Container = styled.div`
-    padding: 70px;
-    display: flex;
-    height: 100vh;
-    width: 90%;
-    margin: auto;
-    flex-wrap: wrap;
-`;
+import MicOffIcon from '@material-ui/icons/MicOff';
+import VideocamOffIcon from '@material-ui/icons/VideocamOff';
+import MicIcon from '@material-ui/icons/Mic'
+import VideocamIcon from '@material-ui/icons/Videocam'
 
 const StyledVideo = styled.video`
     height: 40%;
@@ -100,7 +95,6 @@ const Room = (props) => {
         peer.on("signal", signal => {
             socketRef.current.emit("sending signal", { userToSignal, callerID, signal })
         })
-
         return peer;
     }
 
@@ -114,9 +108,7 @@ const Room = (props) => {
         peer.on("signal", signal => {
             socketRef.current.emit("returning signal", { signal, callerID })
         })
-
         peer.signal(incomingSignal);
-
         return peer;
     }
 
@@ -124,33 +116,32 @@ const Room = (props) => {
 const MuteAudio = () => {
     audStream = !audStream;
     vstream[0].enabled = audStream;
-   
 }
- 
+
 const MuteVideo = () => {
     vidStream = !vidStream;
-    vvstream[0].enabled = vidStream;
+    vvstream[0].enabled = vidStream;   
     
 }
 
 
-    return (<div>        <Container>
+return (
+    <div className="video_container">  
+            <div className="button">  
+            
+<button type="button" onClick={MuteAudio} value="Mute Voice" id="but">{(audStream === true) ? <MicIcon /> : <MicOffIcon />}</button>
+                <button type="button" onClick={MuteVideo} value="Stop Video" id="but">{(vidStream === true) ? <VideocamIcon /> : <VideocamOffIcon />}</button>
+            </div>
+            <div className="video">    
             <StyledVideo muted ref={userVideo} autoPlay playsInline />
             {peers.map((peer, index) => {
                 return (
                     <Video key={index} peer={peer} />
                 );
             })}
-          
-        
-       
-        <div>  <button type="button" onClick={MuteAudio} value="Mute Voice" id="but">Mute Audio</button>
-        <button type="button" onClick={MuteVideo} value="Stop Video" id="but">Mute Video</button>
-</div>
-        </Container>
+            </div>
         </div>
-
-    );
+);
 };
 
 export default Room;

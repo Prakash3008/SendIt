@@ -1,0 +1,19 @@
+.video_container{
+    flex: 0.7;
+    flex-grow: 1;
+    padding-bottom: 200px;
+    height: 500px;
+    max-height: 800px;
+    overflow: scroll;
+}
+
+.button > #but{
+    margin: 30px;
+    margin-left: 350px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.video_container > .button > #but:hover{
+    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
