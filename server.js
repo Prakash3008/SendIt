@@ -44,6 +44,7 @@ io.on('connection', socket => {
             room = room.filter(id => id !== socket.id);
             users[vroomID] = room;
         }
+        socket.broadcast.emit('user left', socket.id);
     });
 
 });
