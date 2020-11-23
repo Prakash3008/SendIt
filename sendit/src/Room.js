@@ -148,7 +148,7 @@ return (
             </div>
             <div className="video">    
             <StyledVideo muted ref={userVideo} autoPlay playsInline />
-            {peers.map((peer, index) => {
+            {peers.map((peer) => {
                 return (
                     <Video key={peer.peerID} peer={peer.peer} />
                 );
