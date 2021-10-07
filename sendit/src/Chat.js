@@ -45,7 +45,7 @@ useEffect(() =>{
 },[roomId]
 );
 
-
+console.log("inside CHAT.js")
     return (
     
         <div className="chat">

@@ -31,7 +31,7 @@ function Sidebar() {
             })))
         ));
     }, [])
-
+    console.log("sidebar loaded")
     return (
         
         <div className="sidebar">

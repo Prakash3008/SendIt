@@ -22,6 +22,7 @@ const [state, dispatch] = useStateValue();
                 alert(error.message);
             });
     };
+    console.log("logged in")
     return (
         <div className="login">
             <div className="login__container">

@@ -46,6 +46,7 @@ const Room = (props) => {
     const {vroomID}=useParams();
     //creating a stream foe p-p comms
     useEffect(() => {
+        console.log("chat room created")
         socketRef.current = io.connect("/");
         navigator.mediaDevices.getUserMedia({ video: videoConstraints, audio: true }).then(stream => {
             userVideo.current.srcObject = stream;
