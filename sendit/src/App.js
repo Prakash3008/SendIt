@@ -11,7 +11,7 @@ import Room from "./Room";
 
 function App() {
 const [{user}, dispatch] = useStateValue();
-
+  console.log("inside app.js")
   return (
     
     <div className="App">

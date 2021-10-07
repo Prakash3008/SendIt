@@ -28,6 +28,7 @@ function ChatInput({channelName, channelId}) {
         }
     }
     const uploadImage = (file) => {
+        console.log("uloading image")
         const filePath =   `chat/images/${uuidv4()}.jpg`;
         storageRef.child(filePath).put(file)
         .then((data) => {data.ref.getDownloadURL()
